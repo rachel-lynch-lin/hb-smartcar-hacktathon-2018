@@ -19,72 +19,14 @@
 
 <body>
 	<div class="container-fluid">
-		<nav class="navbar navbar-expand-lg navbar-light">
-			<img src="/static/css/photos/us-map.svg" width="50" height="30" alt="US Map">
-		  <a class="navbar-brand" id="brand" href="/">National Disaster Declarations</a>
-		  <button class="navbar-toggler" id="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		    <span class="navbar-toggler-icon" id="navbar-toggler-icon"></span>
-		  </button>
-
-		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-		    <ul class="navbar-nav mr-auto">
-		      <li class="nav-item active">
-		        <a class="nav-link" id="nav-link" href="/">	Homepage <span class="sr-only">(current)</span></a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" id="nav-link" href="/about">About</a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" id="nav-link" href="/contact">Contact</a>
-		      </li>
-		      {% set user_id = session.get("user_id") %}
-
-		      {% if user_id %}
-		      <li class="nav-item">
-		        <a class="nav-link" id="nav-link" href="/users/{{user_id}}">User Page</a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" id="nav-link" href="/logout"">Logout</a>
-		      </li>
-		      {% else %}
-		      <li class="nav-item">
-		        <a class="nav-link" id="nav-link" href="/registration">Registration</a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" id="nav-link" href="/login"">Login</a>
-		      </li>
-		      {% endif %}
-
-		      <!-- <li class="nav-item dropdown">
-		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		          Beta Features
-		        </a>
-		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-		          <a class="dropdown-item" href="/us-map">US Map</a>
-		          <a class="dropdown-item" href="/geolocate">Geolocate</a>
-		          <div class="dropdown-divider"></div>
-		          <a class="dropdown-item" href="/places_locate">Find a Place</a>
-		        </div>
-	      	</li> -->
-		    </ul>
-		    <form class="form-inline my-2 my-lg-0" action="/events">
-    			<input class="form-control mr-sm-2" type="search" placeholder="Search for a FEMA ID" aria-label="Search" name="fema-id">
-    			<button class="btn btn-light my-2 my-sm-0" type="submit">Search</button>
-    		</form>
-		  </div>
+		<nav class="navbar navbar-light bg-light">
+		  <a class="navbar-brand" href="#">
+		    <img src="/docs/4.1/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+		    Bootstrap
+		  </a>
 		</nav>
-					
-		<ul>
-			{% for message in get_flashed_messages() %}
-			<div class="alert alert-light alert-dismissible fade show" role="alert" id="alert">
-					<li>{{message}}</li>
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-	    			<span aria-hidden="true">&times;</span>
-	  		</button>
-			</div>
-			{% endfor %}
-		</ul>
-
+							
+		
   	{% block content %} Content Goes Here
 	  	
 	  	
