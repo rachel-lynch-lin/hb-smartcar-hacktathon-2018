@@ -80,9 +80,31 @@ def lock():
     print(response)
     return jsonify(response)
 
+@app.route('/unlock', methods=['GET'])
+def unlock():
+    access_token = session.get('access_token')
+    vid = session.get('vid')
+    vehicle = smartcar.Vehicle(vid, access_token)
+    response = vehicle.unlock()
+    print(response)
+    return jsonify(response)
+
 @app.route('/security', methods=['GET'])
 def security():
     return render_template('security.html')
+
+@app.route('/pickup', methods=['GET'])
+def pickup():
+    access_token = session.get('access_token')
+    vid = session.get('vid')
+    vehicle = smartcar.Vehicle(vid, access_token)
+    print(access_token)
+    location = vehicle.location()
+    print(location)
+    lat = location.get("data").get("latitude")
+    lng = location.get("data").get("longitude")
+    loc = str(lat) + "," + str(lng)
+    return render_template('pickup.html', location=loc, lat = lat, lng = lng)
 
 @app.route('/sms', methods=['GET'])
 def sms():
