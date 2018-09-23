@@ -15,16 +15,13 @@
 			</div>
 			<div class="col">
 				<div class="card" style="width: 18rem;">
-				  <img class="card-img-top" src=".../100px180/?text=Image cap" alt="Map Image">
+				  <!-- <img class="card-img-top" src=".../100px180/?text=Image cap" alt="Map Image"> -->
 				  <div class="card-body">
-				    <h5 class="card-title">Directions</h5>
-				    <p class="card-text">Some text that you have arrived</p>
+				    <h5 class="card-title">Your job to pickup {{ job_1["customer_name"] }}'s car has started!</h5>
 				  </div>
 				  <ul class="list-group list-group-flush">
-				    <li class="list-group-item">Address/Vehicle Information</li>
-				    <li class="list-group-item">Maybe some other information</li>
 				    <li class="list-group-item">
-				    	<form action="/job_details/job_1" method="GET">
+				    	<form action="/sms" method="GET">
 		            <div class="card-body">
 		              <div class="form-group">
 		                <label for="car_1"><b>Car Address:</b></label>
@@ -38,15 +35,11 @@
 		                <label for="pick_up_1"><b>Pick-Up Time:</b></label>
 		                <small id="pick_up_1" class="form-text text-muted">{{ job_1["pick_up"] }}</small>
 		              </div>
-		                <button type="submit" class="btn btn-primary">Submit</button>
+		                <button type="submit" class="btn btn-primary">Get Directions to Car!</button>
 		            </div>
 		          </form>
 		        </li>
 				  </ul>
-				  <div class="card-body">
-				    <a href="#" class="card-link">Anything else here or move the form and button here</a>
-				    <a href="#" class="card-link">Another link</a>
-				  </div>
 				</div>
 			</div>
 			<div class="col">

@@ -110,7 +110,7 @@ def pickup():
 def sms():
     message = smsClient.messages \
                 .create(
-                     body="Join Earth's mightiest heroes. Like Kevin Bacon.",
+                     body="Your car has arrived at the dealership!",
                      from_='+18316106841',
                      to='+14085325057'
                  )
@@ -123,6 +123,7 @@ def job_list():
 
     job_1 = {
              "name": "Job 1",
+             "customer_name": "Sahas",
              "dealership_name": "Tesla Dealership - San Francisco",
              "car_address": "683 Sutter St, San Francisco, CA 94109",
              "dealership_address": "999 Van Ness Ave, San Francisco, CA 94109",
@@ -130,6 +131,7 @@ def job_list():
             }
     job_2 = {
              "name": "Job 2",
+             "customer_name": "Sahas",
              "dealership_name": "Tesla Dealership - Scottsdale",
              "car_address": "15215 N. Kierland Blvd, Scottsdale, AZ 85254",
              "dealership_address": "7014 E. Camelback Road, Suite #1210, Scottsdale, AZ 85251",
@@ -137,6 +139,7 @@ def job_list():
             }
     job_3 = {
              "name": "Job 3",
+             "customer_name": "Sahas",
              "dealership_name": "Tesla Dealership - Fremont",
              "car_address": "45500 Fremont Blvd Fremont, CA 94538",
              "dealership_address": "6701 Amador Plaza Road Dublin, CA 94568",
@@ -162,6 +165,7 @@ def job_details():
 
     job_1 = {
              "name": "Job 1",
+             "customer_name": "Sahas",
              "dealership_name": "Tesla Dealership - San Francisco",
              "car_address": "683 Sutter St, San Francisco, CA 94109",
              "dealership_address": "999 Van Ness Ave, San Francisco, CA 94109",
@@ -178,6 +182,7 @@ def job_completion():
 
     job_1 = {
              "name": "Job 1",
+             "customer_name": "Sahas",
              "dealership_name": "Tesla Dealership - San Francisco",
              "car_address": "683 Sutter St, San Francisco, CA 94109",
              "dealership_address": "999 Van Ness Ave, San Francisco, CA 94109",
