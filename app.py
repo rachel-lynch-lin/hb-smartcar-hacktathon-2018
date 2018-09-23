@@ -4,16 +4,17 @@ import secrets
 from twilio.rest import Client
 from flask import Flask, request, jsonify, session
 
-account_sid = 'AC3af0ca72a75e372ab607702d7ca45c0f'
-auth_token = 'e569a6f02d904b7f1840abcbcc92f849'
+account_sid = secrets.ACCOUNT_SID
+auth_token = secrets.AUTH_TOKEN
 smsClient = Client(account_sid, auth_token)
+redirect_uri = secrets.REDIRECT_URI
 
 app = Flask(__name__)
 app.secret_key = 'blah!'
 client = smartcar.AuthClient(
     client_id=secrets.CLIENT_ID,
     client_secret=secrets.CLIENT_SECRET,
-    redirect_uri='https://192.168.2.45:8000/callback',
+    redirect_uri=redirect_uri,
     scope=['read_vehicle_info', 'read_location', 'read_odometer', 'control_security', 'read_vin']
 )
 
