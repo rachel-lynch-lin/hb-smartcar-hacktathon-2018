@@ -19,6 +19,7 @@ client = smartcar.AuthClient(
     scope=['read_vehicle_info', 'read_location', 'read_odometer', 'control_security', 'read_vin']
 )
 
+
 @app.route('/', methods=['GET'])
 def index():
     auth_url = client.get_auth_url(force=True)
@@ -28,6 +29,7 @@ def index():
           <button>Connect Car</button>
         </a>
     ''' % auth_url
+
 
 @app.route('/callback', methods=['GET'])
 def callback():
@@ -42,6 +44,7 @@ def callback():
     session['vin'] = smartcar.Vehicle(session['vid'], access_token).vin()
     return redirect('/security')
 
+
 @app.route('/getlocation', methods=['GET'])
 def getCarLocation():
     access_token = session.get('access_token')
@@ -51,6 +54,7 @@ def getCarLocation():
     location = vehicle.location()
     print(location)
     return jsonify(location)
+
 
 @app.route('/getinfo', methods=['GET'])
 def getInfo():
@@ -62,6 +66,7 @@ def getInfo():
     print(info)
     return jsonify(info)
 
+
 @app.route('/getodo', methods=['GET'])
 def getOdo():
     access_token = session.get('access_token')
@@ -70,6 +75,7 @@ def getOdo():
     print(access_token)
     odometer = vehicle.odometer()
     return jsonify(odometer)
+
 
 @app.route('/lock', methods=['GET'])
 def lock():
@@ -80,9 +86,35 @@ def lock():
     print(response)
     return jsonify(response)
 
+
+@app.route('/unlock', methods=['GET'])
+def unlock():
+    access_token = session.get('access_token')
+    vid = session.get('vid')
+    vehicle = smartcar.Vehicle(vid, access_token)
+    response = vehicle.unlock()
+    print(response)
+    return jsonify(response)
+
+
 @app.route('/security', methods=['GET'])
 def security():
     return render_template('security.html')
+
+
+@app.route('/pickup', methods=['GET'])
+def pickup():
+    access_token = session.get('access_token')
+    vid = session.get('vid')
+    vehicle = smartcar.Vehicle(vid, access_token)
+    print(access_token)
+    location = vehicle.location()
+    print(location)
+    lat = location.get("data").get("latitude")
+    lng = location.get("data").get("longitude")
+    loc = str(lat) + "," + str(lng)
+    return render_template('pickup.html', location=loc, lat = lat, lng = lng)
+
 
 @app.route('/sms', methods=['GET'])
 def sms():
@@ -94,6 +126,7 @@ def sms():
                  )
     print(message.sid)
     return jsonify(message.sid)
+
 
 @app.route('/job_list')
 def job_list():
@@ -129,6 +162,7 @@ def job_list():
                            job_2=job_2,
                            job_3=job_3)
 
+
 @app.route('/job_list', methods=["POST"])
 def show_job_details_page():
     """Job List Page"""
@@ -139,7 +173,15 @@ def show_job_details_page():
 @app.route('/job_details')
 def job_details():
     """Job Details Page"""
-    
+    access_token = session.get('access_token')
+    vid = session.get('vid')
+    vehicle = smartcar.Vehicle(vid, access_token)
+    print(access_token)
+    location = vehicle.location()
+    print(location)
+    lat = location.get("data").get("latitude")
+    lng = location.get("data").get("longitude")
+    loc = str(lat) + "," + str(lng)
 
     job_1 = {
              "name": "Job 1",
@@ -150,8 +192,8 @@ def job_details():
              "pick_up":"8:00AM"
             }
 
-    return render_template('job_details.html',
-                           job_1=job_1)
+
+    return render_template('job_details.html', job_1=job_1, lat = lat, lng = lng)
 
 
 @app.route('/job_details', methods=["POST"])

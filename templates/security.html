@@ -15,12 +15,20 @@
             });
             return false;
           });
+          $('a#info').bind('click', function() {
+            $.getJSON('/getinfo',
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
         });
 </script>
 
 
 <div class='container'>
         <form>
+            <a href=# id=info><button class='btn btn-default'>Info</button></a>
             <a href=# id=lock><button class='btn btn-default'>Lock</button></a>
             <a href=# id=unlock><button class='btn btn-default'>Unlock</button></a>
         </form>

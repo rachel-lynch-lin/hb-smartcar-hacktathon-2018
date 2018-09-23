@@ -9,15 +9,30 @@
 {% block title %} Job Complete {% endblock %}
 
 {% block content %} 
+<style>
+       /* Set the size of the div element that contains the map */
+      #map {
+        height: 250px;  /* The height is 400 pixels */
+        width: 250px;  /* The width is the width of the web page */
+       }
+    </style>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-4">
 			</div>
+<<<<<<< HEAD
 			<div class="col-4">
 				<div class="card">
+=======
+			<div class="col">
+				<div class="card" >
+>>>>>>> 4200cefb187bb0a5bd9b240dc88741c1a29e6212
 				  <div class="card-body">
 				    <h5 class="card-title">Your job to pickup {{ job_1["customer_name"] }}'s car has started!</h5>
 				  </div>
+				  <div class="card-body">
+				  	<div id="map"></div>
+				  	<div>
 				  <ul class="list-group list-group-flush">
 				    <li class="list-group-item">
 				    	<form action="/dropoff" method="GET">
@@ -48,5 +63,25 @@
 {% endblock %}
 
 {% block scripts %}
+    <script>
+	// Initialize and add the map
+	function initMap() {
+	  // The location of Uluru
+	  var pos = {lat: {{ lat }}, lng: {{ lng }} };
+	  // The map, centered at Uluru
+	  var map = new google.maps.Map(
+	      document.getElementById('map'), {zoom: 16, center: pos, disableDefaultUI: true});
+	  // The marker, positioned at Uluru
+	  var marker = new google.maps.Marker({position: pos, map: map});
+	}
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2tjEKByQe3wNNvlxeK6pbooZBgibhUl8&callback=initMap">
+    </script>
 {% endblock %}
 
