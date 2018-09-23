@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block css_scripts %}
+
+  <link rel="stylesheet" href="/static/css/job_complete.css">
+
+
+{% endblock %}
+{% block title %} Job Dropoff {% endblock %}
+
+{% block content %} 
+<style>
+       /* Set the size of the div element that contains the map */
+      #map {
+        height: 250px;  /* The height is 400 pixels */
+        width: 250px;  /* The width is the width of the web page */
+       }
+    </style>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col">
+			</div>
+			<div class="col">
+				<div class="card" style="width: 18">
+				  <div class="card-body">
+				    <h5 class="card-title">Finish your job for {{ job_1["customer_name"] }}!</h5>
+				  </div>
+				  <div class="card-body">
+				  	<div id="map"></div>
+				  	<div>
+				  <ul class="list-group list-group-flush">
+				    <li class="list-group-item">
+				    	<form action="/dropoff" method="GET">
+		            <div class="card-body">
+		              <div class="form-group">
+		                <label for="dealership_1"><b>Dealership Address:</b></label>
+		                <small id="dealership_1" class="form-text text-muted">{{ job_1["dealership_address"] }}</small>
+		              </div>  
+		                <button type="submit" class="btn btn-primary">Finish Job!</button>
+		            </div>
+		          </form>
+		        </li>
+				  </ul>
+				</div>
+			</div>
+			<div class="col">
+			</div>
+		</div>	
+	</div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+	// Initialize and add the map
+	function initMap() {
+	  // The location of Uluru
+	  var pos = {lat: {{ lat }}, lng: {{ lng }} };
+	  // The map, centered at Uluru
+	  var map = new google.maps.Map(
+	      document.getElementById('map'), {zoom: 16, center: pos, disableDefaultUI: true});
+	  // The marker, positioned at Uluru
+	  var marker = new google.maps.Marker({position: pos, map: map});
+	}
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2tjEKByQe3wNNvlxeK6pbooZBgibhUl8&callback=initMap">
+    </script>
+{% endblock %}
+
