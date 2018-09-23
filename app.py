@@ -240,6 +240,13 @@ def dropoff_details():
                            job_1=job_1, lat = lat, lng = lng)
 
 
+@app.route('/dropoff', methods=["POST"])
+def show_job_completion_page():
+    """Show job completion page"""
+     
+    return redirect('job_completion.html')
+
+
 @app.route('/job_completion')
 def job_completion():
     """Job Details Page"""

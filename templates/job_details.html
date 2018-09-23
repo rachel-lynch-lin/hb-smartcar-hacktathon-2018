@@ -2,8 +2,6 @@
 
 {% block css_scripts %}
 
-  <link rel="stylesheet" href="/static/css/job_complete.css">
-
 
 {% endblock %}
 {% block title %} Job Complete {% endblock %}
@@ -21,14 +19,13 @@
 			<div class="col">
 			</div>
 			<div class="col">
-				<div class="card">
-			<div class="col">
-				<div class="card" >
+				<div class="card" style="width: 18rem;">
 				  <div class="card-body">
 				    <h5 class="card-title">Your job to pickup {{ job_1["customer_name"] }}'s car has started!</h5>
 				  </div>
 				  <div class="card-body">
-				  	<div id="map"></div>
+				  	<div id="map">
+				  	</div>
 				  	<div>
 				  <ul class="list-group list-group-flush">
 				    <li class="list-group-item">
@@ -50,9 +47,10 @@
 		            </div>
 		          </form>
 		        </li>
-				  </ul>
+				</ul>
 				</div>
 			</div>
+
 			<div class="col">
 			</div>
 		</div>	

@@ -2,7 +2,6 @@
 
 {% block css_scripts %}
 
-  <link rel="stylesheet" href="/static/css/job_list.css">
 
 {% endblock %}
 {% block title %} Homepage {% endblock %}
@@ -12,90 +11,93 @@
     <div class="col">
     </div>
     <div class="col">
-      <div class="accordion" id="accordionExample">
-        <div class="card">
-          <div class="card-header" id="headingOne">
-            <h5 class="mb-0">
-              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                {{ job_1["name"] }}
-              </button>
-            </h5>
-          </div>
+      <div class="card" style="width: 18rem;">
 
-          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-            <form action="/job_details" method="GET">
-              <div class="card-body">
-                <div class="form-group">
-                  <label for="car_1"><b>Car Address:</b></label>
-                  <small id="car_1" class="form-text text-muted">{{ job_1["car_address"] }}</small>
+        <div class="accordion" id="accordionExample">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  {{ job_1["name"] }}
+                </button>
+              </h5>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <form action="/job_details" method="GET">
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="car_1"><b>Car Address:</b></label>
+                    <small id="car_1" class="form-text text-muted">{{ job_1["car_address"] }}</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="dealership_1"><b>Dealership Address:</b></label>
+                    <small id="dealership_1" class="form-text text-muted">{{ job_1["dealership_address"] }}</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="pick_up_1"><b>Pick-Up Time:</b></label>
+                    <small id="pick_up_1" class="form-text text-muted">{{ job_1["pick_up"] }}</small>
+                  </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
-                <div class="form-group">
-                  <label for="dealership_1"><b>Dealership Address:</b></label>
-                  <small id="dealership_1" class="form-text text-muted">{{ job_1["dealership_address"] }}</small>
-                </div>
-                <div class="form-group">
-                  <label for="pick_up_1"><b>Pick-Up Time:</b></label>
-                  <small id="pick_up_1" class="form-text text-muted">{{ job_1["pick_up"] }}</small>
-                </div>
-                  <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <div class="card-header" id="headingTwo">
-            <h5 class="mb-0">
-              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                {{ job_2["name"] }}            
-              </button>
-            </h5>
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  {{ job_2["name"] }}            
+                </button>
+              </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+              <form action="/job_details" method="GET">
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="car_2"><b>Car Address:</b></label>
+                    <small id="car_2" class="form-text text-muted">{{ job_2["car_address"] }}</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="dealership_2"><b>Dealership Address:</b></label>
+                    <small id="dealership_2" class="form-text text-muted">{{ job_2["dealership_address"] }}</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="pick_up_2"><b>Pick-Up Time:</b></label>
+                    <small id="pick_up_2" class="form-text text-muted">{{ job_2["pick_up"] }}</small>
+                  </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
           </div>
-          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-            <form action="/job_details" method="GET">
-              <div class="card-body">
-                <div class="form-group">
-                  <label for="car_2"><b>Car Address:</b></label>
-                  <small id="car_2" class="form-text text-muted">{{ job_2["car_address"] }}</small>
+          <div class="card">
+            <div class="card-header" id="headingThree">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  {{ job_3["name"] }}            
+                </button>
+              </h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <form action="/job_details" method="GET">
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="car_3"><b>Car Address:</b></label>
+                    <small id="car_3" class="form-text text-muted">{{ job_3["car_address"] }}</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="dealership_3"><b>Dealership Address:</b></label>
+                    <small id="dealership_3" class="form-text text-muted">{{ job_3["dealership_address"] }}</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="pick_up_3"><b>Pick-Up Time:</b></label>
+                    <small id="pick_up_3" class="form-text text-muted">{{ job_3["pick_up"] }}</small>
+                  </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
-                <div class="form-group">
-                  <label for="dealership_2"><b>Dealership Address:</b></label>
-                  <small id="dealership_2" class="form-text text-muted">{{ job_2["dealership_address"] }}</small>
-                </div>
-                <div class="form-group">
-                  <label for="pick_up_2"><b>Pick-Up Time:</b></label>
-                  <small id="pick_up_2" class="form-text text-muted">{{ job_2["pick_up"] }}</small>
-                </div>
-                  <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header" id="headingThree">
-            <h5 class="mb-0">
-              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                {{ job_3["name"] }}            
-              </button>
-            </h5>
-          </div>
-          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-            <form action="/job_details" method="GET">
-              <div class="card-body">
-                <div class="form-group">
-                  <label for="car_3"><b>Car Address:</b></label>
-                  <small id="car_3" class="form-text text-muted">{{ job_3["car_address"] }}</small>
-                </div>
-                <div class="form-group">
-                  <label for="dealership_3"><b>Dealership Address:</b></label>
-                  <small id="dealership_3" class="form-text text-muted">{{ job_3["dealership_address"] }}</small>
-                </div>
-                <div class="form-group">
-                  <label for="pick_up_3"><b>Pick-Up Time:</b></label>
-                  <small id="pick_up_3" class="form-text text-muted">{{ job_3["pick_up"] }}</small>
-                </div>
-                  <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
       </div>

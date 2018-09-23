@@ -2,8 +2,6 @@
 
 {% block css_scripts %}
 
-  <link rel="stylesheet" href="/static/css/job_complete.css">
-
 
 {% endblock %}
 {% block title %} Job Dropoff {% endblock %}
@@ -21,8 +19,9 @@
 			<div class="col">
 			</div>
 			<div class="col">
-				<div class="card" >
-				  <div class="card-body">
+
+				<div class="card" style="width: 18rem;">				  
+					<div class="card-body">
 				    <h5 class="card-title">Finish your job for {{ job_1["customer_name"] }}!</h5>
 				  </div>
 				  <div class="card-body">
@@ -30,7 +29,7 @@
 				  	<div>
 				  <ul class="list-group list-group-flush">
 				    <li class="list-group-item">
-				    	<form action="/dropoff" method="GET">
+				    	<form action="/job_completion" method="GET">
 		            <div class="card-body">
 		              <div class="form-group">
 		                <label for="dealership_1"><b>Dealership Address:</b></label>
