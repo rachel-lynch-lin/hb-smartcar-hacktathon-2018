@@ -123,40 +123,69 @@ def job_list():
 
     job_1 = {
              "name": "Job 1",
+             "dealership_name": "Tesla Dealership - San Francisco",
              "car_address": "683 Sutter St, San Francisco, CA 94109",
              "dealership_address": "999 Van Ness Ave, San Francisco, CA 94109",
              "pick_up":"8:00AM"
             }
     job_2 = {
              "name": "Job 2",
+             "dealership_name": "Tesla Dealership - Scottsdale",
              "car_address": "15215 N. Kierland Blvd, Scottsdale, AZ 85254",
              "dealership_address": "7014 E. Camelback Road, Suite #1210, Scottsdale, AZ 85251",
              "pick_up":"10:30AM"
             }
     job_3 = {
              "name": "Job 3",
+             "dealership_name": "Tesla Dealership - Fremont",
              "car_address": "45500 Fremont Blvd Fremont, CA 94538",
              "dealership_address": "6701 Amador Plaza Road Dublin, CA 94568",
              "pick_up": "11:45AM"
             } 
-
-    # car_info = requests.get("https://192.168.2.38:8000/getinfo", verify=False)
-    # print(car_info)
 
     return render_template('job_list.html',
                            job_1=job_1,
                            job_2=job_2,
                            job_3=job_3)
 
+@app.route('/job_list', methods=["POST"])
+def show_job_details_page():
+    """Job List Page"""
 
-@app.route('/job_details/job_1')
+    return redirect('job_details.html')
+
+
+@app.route('/job_details')
 def job_details():
     """Job Details Page"""
+    
 
+    job_1 = {
+             "name": "Job 1",
+             "dealership_name": "Tesla Dealership - San Francisco",
+             "car_address": "683 Sutter St, San Francisco, CA 94109",
+             "dealership_address": "999 Van Ness Ave, San Francisco, CA 94109",
+             "pick_up":"8:00AM"
+            }
      
-    return render_template('job_details.html')
+    return render_template('job_details.html',
+                           job_1=job_1)
 
+@app.route('/job_completion')
+def job_completion():
+    """Job Details Page"""
+    
 
+    job_1 = {
+             "name": "Job 1",
+             "dealership_name": "Tesla Dealership - San Francisco",
+             "car_address": "683 Sutter St, San Francisco, CA 94109",
+             "dealership_address": "999 Van Ness Ave, San Francisco, CA 94109",
+             "pick_up":"8:00AM"
+            }
+     
+    return render_template('job_completion.html',
+                           job_1=job_1)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000, ssl_context="adhoc")

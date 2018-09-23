@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block css_scripts %}
+
+  <link rel="stylesheet" href="/static/css/job_complete.css">
+
+
+{% endblock %}
+{% block title %} Job Complete {% endblock %}
+
+{% block content %} 
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col">
+			</div>
+			<div class="col">
+				<div class="card" style="width: 18rem;">
+				  <!-- <img class="card-img-top" src=".../100px180/?text=Image cap" alt="Map Image"> -->
+				  <div class="card-body">
+				    <h5 class="card-title">You have arrived at {{ job_1["dealership_name"]}}!</h5>
+				  </div>
+				  <ul class="list-group list-group-flush">
+				    <li class="list-group-item">
+				    	<form action="/job_details/job_1" method="GET">
+		            <div class="card-body">
+		              <div class="form-group">
+		                <label for="car_1"><b>Car Address:</b></label>
+		                <small id="car_1" class="form-text text-muted">{{ job_1["dealership_address"] }}</small>
+		              </div>
+		              <div class="form-group">
+		                <label for="dealership_1"><b>Dealership Address:</b></label>
+		                <small id="dealership_1" class="form-text text-muted">{{ job_1["dealership_address"] }}</small>
+		              </div>
+		                <button type="submit" class="btn btn-primary">Dropped Off!</button>
+		            </div>
+		          </form>
+		        </li>
+				  </ul>
+				</div>
+			</div>
+			<div class="col">
+			</div>
+		</div>	
+	</div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
+
