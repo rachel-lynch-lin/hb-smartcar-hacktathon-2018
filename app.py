@@ -1,7 +1,12 @@
 
 import smartcar
 import secrets
+from twilio.rest import Client
 from flask import Flask, request, jsonify, session
+
+account_sid = 'AC3af0ca72a75e372ab607702d7ca45c0f'
+auth_token = 'e569a6f02d904b7f1840abcbcc92f849'
+smsClient = Client(account_sid, auth_token)
 
 app = Flask(__name__)
 app.secret_key = 'blah!'
@@ -73,6 +78,17 @@ def lock():
     response = vehicle.lock()
     print(response)
     return jsonify(response)
+
+@app.route('/sms', methods=['GET'])
+def sms():
+    message = smsClient.messages \
+                .create(
+                     body="Join Earth's mightiest heroes. Like Kevin Bacon.",
+                     from_='+18316106841',
+                     to='+14085325057'
+                 )
+    print(message.sid)
+    return jsonify(message.sid)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000, ssl_context="adhoc")
