@@ -217,14 +217,15 @@ def show_dropoff_page():
                  )
     print(message.sid)
 
-    return redirect('dropoff.html',
+    return redirect('job_dropoff.html',
                     message=jsonify(message.sid))
 
 
 @app.route('/dropoff')
 def dropoff_details():
     """Dropoff Details Page"""
-    
+    lat = 37.784624 
+    lng = -122.421524
 
     job_1 = {
              "name": "Job 1",
@@ -235,8 +236,8 @@ def dropoff_details():
              "pick_up":"8:00AM"
             }
      
-    return render_template('dropoff.html',
-                           job_1=job_1)
+    return render_template('job_dropoff.html',
+                           job_1=job_1, lat = lat, lng = lng)
 
 
 @app.route('/job_completion')
