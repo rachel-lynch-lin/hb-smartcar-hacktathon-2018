@@ -118,21 +118,38 @@ def job_list():
              "pick_up": "11:45AM"
             } 
 
-    # car_info = requests.get("https://192.168.2.38:8000/getinfo", verify=False)
-    # print(car_info)
-
     return render_template('job_list.html',
                            job_1=job_1,
                            job_2=job_2,
                            job_3=job_3)
 
+@app.route('/job_list', methods=["POST"])
+def show_job_details_page():
+    """Job List Page"""
 
-@app.route('/job_details/job_1')
+    return redirect('job_details.html')
+
+
+@app.route('/job_details')
 def job_details():
     """Job Details Page"""
+    
 
+    job_1 = {
+             "name": "Job 1",
+             "car_address": "683 Sutter St, San Francisco, CA 94109",
+             "dealership_address": "999 Van Ness Ave, San Francisco, CA 94109",
+             "pick_up":"8:00AM"
+            }
      
     return render_template('job_details.html')
+
+@app.route('/dropoff')
+def dropoff():
+    """Dropoff Details Page"""
+
+     
+    return render_template('dropoff.html')
 
 
 
