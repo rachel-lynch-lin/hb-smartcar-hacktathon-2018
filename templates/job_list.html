@@ -22,8 +22,9 @@
         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
           <div class="card-body">
             <ul>
-              <li>Car Address:<br>{{ job_1["car_address"]}}</li>
-              <li>Dealership Address:<br>{{ job_1["dealership_address"]}}</li>
+              <li>Car Address:<br>{{ job_1["car_address"] }}</li>
+              <li>Dealership Address:<br>{{ job_1["dealership_address"] }}</li>
+              <li>Pick-Up Time:<br>{{ job_1["pick_up"] }}</li>
             </ul>
           </div>
         </div>
@@ -39,8 +40,9 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
           <div class="card-body">
             <ul>
-              <li>Car Address:<br>{{ job_2["car_address"]}}</li>
-              <li>Dealership Address:<br>{{ job_2["dealership_address"]}}</li>
+              <li>Car Address:<br>{{ job_2["car_address"] }}</li>
+              <li>Dealership Address:<br>{{ job_2["dealership_address"] }}</li>
+              <li>Pick-Up Time:<br>{{ job_2["pick_up"] }}</li>
             </ul>
           </div>
         </div>
@@ -56,8 +58,9 @@
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
           <div class="card-body">
             <ul>
-              <li>Car Address:<br>{{ job_3["car_address"]}}</li>
-              <li>Dealership Address:<br>{{ job_3["dealership_address"]}}</li>
+              <li>Car Address:<br>{{ job_3["car_address"] }}</li>
+              <li>Dealership Address:<br>{{ job_3["dealership_address"] }}</li>
+              <li>Pick-Up Time:<br>{{ job_3["pick_up"] }}</li>
             </ul>
           </div>
         </div>
@@ -70,3 +73,10 @@
 
 {% block scripts %}
 {% endblock %}
+
+
+<form action="/job_list" method="POST">
+  <div class="form-group">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
