@@ -161,7 +161,15 @@ def show_job_details_page():
 @app.route('/job_details')
 def job_details():
     """Job Details Page"""
-    
+    access_token = session.get('access_token')
+    vid = session.get('vid')
+    vehicle = smartcar.Vehicle(vid, access_token)
+    print(access_token)
+    location = vehicle.location()
+    print(location)
+    lat = location.get("data").get("latitude")
+    lng = location.get("data").get("longitude")
+    loc = str(lat) + "," + str(lng)
 
     job_1 = {
              "name": "Job 1",
@@ -173,7 +181,7 @@ def job_details():
             }
      
     return render_template('job_details.html',
-                           job_1=job_1)
+                           job_1=job_1, lat = lat, lng = lng)
 
 @app.route('/job_completion')
 def job_completion():
