@@ -150,16 +150,8 @@ def job_details():
              "pick_up":"8:00AM"
             }
 
-    message = smsClient.messages \
-                .create(
-                     body="Your car is on its way to the dealership!",
-                     from_='+18316106841',
-                     to='+14085325057'
-                 )
-    print(message.sid)
     return render_template('job_details.html',
-                           job_1=job_1,
-                           message=jsonify(message.sid))
+                           job_1=job_1)
 
 
 @app.route('/job_details', methods=["POST"])
@@ -175,8 +167,16 @@ def show_dropoff_page():
              "dealership_address": "999 Van Ness Ave, San Francisco, CA 94109",
              "pick_up":"8:00AM"
             }
-     
-    return redirect('dropoff.html')
+    message = smsClient.messages \
+                .create(
+                     body="Your car is on its way to the dealership!",
+                     from_='+18316106841',
+                     to='+14085325057'
+                 )
+    print(message.sid)
+
+    return redirect('dropoff.html',
+                    message=jsonify(message.sid))
 
 
 @app.route('/dropoff')
