@@ -1,0 +1,28 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type=text/javascript>
+        $(function() {
+          $('a#lock').bind('click', function() {
+            $.getJSON('/lock',
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
+          $('a#unlock').bind('click', function() {
+            $.getJSON('/unlock',
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
+        });
+</script>
+
+
+<div class='container'>
+        <form>
+            <a href=# id=lock><button class='btn btn-default'>Lock</button></a>
+            <a href=# id=unlock><button class='btn btn-default'>Unlock</button></a>
+        </form>
+
+</div>

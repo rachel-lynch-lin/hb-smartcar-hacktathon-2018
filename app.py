@@ -37,11 +37,10 @@ def callback():
     access_token = session['access_token']
 
     response = smartcar.get_vehicle_ids(access_token)
-    session['vid'] = response['vehicles'][0]
+    print(response['vehicles'])
+    session['vid'] = response['vehicles'][1]
     session['vin'] = smartcar.Vehicle(session['vid'], access_token).vin()
-    print(session)
-    print(access_token)
-    return jsonify(access)
+    return redirect('/security')
 
 @app.route('/getlocation', methods=['GET'])
 def getCarLocation():
@@ -80,6 +79,10 @@ def lock():
     response = vehicle.lock()
     print(response)
     return jsonify(response)
+
+@app.route('/security', methods=['GET'])
+def security():
+    return render_template('security.html')
 
 @app.route('/sms', methods=['GET'])
 def sms():
