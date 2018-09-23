@@ -142,7 +142,8 @@ def job_details():
              "pick_up":"8:00AM"
             }
      
-    return render_template('job_details.html')
+    return render_template('job_details.html',
+                           job_1=job_1)
 
 @app.route('/dropoff')
 def dropoff():
