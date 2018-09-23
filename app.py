@@ -149,9 +149,53 @@ def job_details():
              "dealership_address": "999 Van Ness Ave, San Francisco, CA 94109",
              "pick_up":"8:00AM"
             }
-     
+
+    message = smsClient.messages \
+                .create(
+                     body="Your is on its way to the dealership!",
+                     from_='+18316106841',
+                     to='+14085325057'
+                 )
+    print(message.sid)
     return render_template('job_details.html',
+                           job_1=job_1,
+                           message=jsonify(message.sid))
+
+
+@app.route('/job_details', methods=["POST"])
+def show_pickup_page():
+    """Go to Job Pickup Page"""
+    
+
+    job_1 = {
+             "name": "Job 1",
+             "customer_name": "Sahas",
+             "dealership_name": "Tesla Dealership - San Francisco",
+             "car_address": "683 Sutter St, San Francisco, CA 94109",
+             "dealership_address": "999 Van Ness Ave, San Francisco, CA 94109",
+             "pick_up":"8:00AM"
+            }
+     
+    return redirect('pickup.html')
+
+
+@app.route('/pickup')
+def pickup_details():
+    """Pickup Details Page"""
+    
+
+    job_1 = {
+             "name": "Job 1",
+             "customer_name": "Sahas",
+             "dealership_name": "Tesla Dealership - San Francisco",
+             "car_address": "683 Sutter St, San Francisco, CA 94109",
+             "dealership_address": "999 Van Ness Ave, San Francisco, CA 94109",
+             "pick_up":"8:00AM"
+            }
+     
+    return render_template('pickup.html',
                            job_1=job_1)
+
 
 @app.route('/job_completion')
 def job_completion():
@@ -169,6 +213,7 @@ def job_completion():
      
     return render_template('job_completion.html',
                            job_1=job_1)
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000, ssl_context="adhoc")
