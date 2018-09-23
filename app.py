@@ -152,7 +152,7 @@ def job_details():
 
     message = smsClient.messages \
                 .create(
-                     body="Your is on its way to the dealership!",
+                     body="Your car is on its way to the dealership!",
                      from_='+18316106841',
                      to='+14085325057'
                  )
@@ -163,8 +163,8 @@ def job_details():
 
 
 @app.route('/job_details', methods=["POST"])
-def show_pickup_page():
-    """Go to Job Pickup Page"""
+def show_dropoff_page():
+    """Go to Job Dropoff Page"""
     
 
     job_1 = {
@@ -176,12 +176,12 @@ def show_pickup_page():
              "pick_up":"8:00AM"
             }
      
-    return redirect('pickup.html')
+    return redirect('dropoff.html')
 
 
-@app.route('/pickup')
-def pickup_details():
-    """Pickup Details Page"""
+@app.route('/dropoff')
+def dropoff_details():
+    """Dropoff Details Page"""
     
 
     job_1 = {
@@ -193,7 +193,7 @@ def pickup_details():
              "pick_up":"8:00AM"
             }
      
-    return render_template('pickup.html',
+    return render_template('dropoff.html',
                            job_1=job_1)
 
 
