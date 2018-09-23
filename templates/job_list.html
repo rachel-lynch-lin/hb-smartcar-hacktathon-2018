@@ -20,13 +20,23 @@
         </div>
 
         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-          <div class="card-body">
-            <ul>
-              <li>Car Address:<br>{{ job_1["car_address"] }}</li>
-              <li>Dealership Address:<br>{{ job_1["dealership_address"] }}</li>
-              <li>Pick-Up Time:<br>{{ job_1["pick_up"] }}</li>
-            </ul>
-          </div>
+          <form action="/job_details/job_1" method="GET">
+            <div class="card-body">
+              <div class="form-group">
+                <label for="car_1"><b>Car Address:</b></label>
+                <small id="car_1" class="form-text text-muted">{{ job_1["car_address"] }}</small>
+              </div>
+              <div class="form-group">
+                <label for="dealership_1"><b>Dealership Address:</b></label>
+                <small id="dealership_1" class="form-text text-muted">{{ job_1["dealership_address"] }}</small>
+              </div>
+              <div class="form-group">
+                <label for="pick_up_1"><b>Pick-Up Time:</b></label>
+                <small id="pick_up_1" class="form-text text-muted">{{ job_1["pick_up"] }}</small>
+              </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
         </div>
       </div>
       <div class="card">
@@ -38,13 +48,23 @@
           </h5>
         </div>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-          <div class="card-body">
-            <ul>
-              <li>Car Address:<br>{{ job_2["car_address"] }}</li>
-              <li>Dealership Address:<br>{{ job_2["dealership_address"] }}</li>
-              <li>Pick-Up Time:<br>{{ job_2["pick_up"] }}</li>
-            </ul>
-          </div>
+          <form action="/job_details/job_2" method="GET">
+            <div class="card-body">
+              <div class="form-group">
+                <label for="car_2"><b>Car Address:</b></label>
+                <small id="car_2" class="form-text text-muted">{{ job_2["car_address"] }}</small>
+              </div>
+              <div class="form-group">
+                <label for="dealership_2"><b>Dealership Address:</b></label>
+                <small id="dealership_2" class="form-text text-muted">{{ job_2["dealership_address"] }}</small>
+              </div>
+              <div class="form-group">
+                <label for="pick_up_2"><b>Pick-Up Time:</b></label>
+                <small id="pick_up_2" class="form-text text-muted">{{ job_2["pick_up"] }}</small>
+              </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
         </div>
       </div>
       <div class="card">
@@ -56,27 +76,30 @@
           </h5>
         </div>
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-          <div class="card-body">
-            <ul>
-              <li>Car Address:<br>{{ job_3["car_address"] }}</li>
-              <li>Dealership Address:<br>{{ job_3["dealership_address"] }}</li>
-              <li>Pick-Up Time:<br>{{ job_3["pick_up"] }}</li>
-            </ul>
-          </div>
+          <form action="/job_details/job_3" method="GET">
+            <div class="card-body">
+              <div class="form-group">
+                <label for="car_3"><b>Car Address:</b></label>
+                <small id="car_3" class="form-text text-muted">{{ job_3["car_address"] }}</small>
+              </div>
+              <div class="form-group">
+                <label for="dealership_3"><b>Dealership Address:</b></label>
+                <small id="dealership_3" class="form-text text-muted">{{ job_3["dealership_address"] }}</small>
+              </div>
+              <div class="form-group">
+                <label for="pick_up_3"><b>Pick-Up Time:</b></label>
+                <small id="pick_up_3" class="form-text text-muted">{{ job_3["pick_up"] }}</small>
+              </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
-
  
 {% endblock %}
 
 {% block scripts %}
 {% endblock %}
 
-
-<form action="/job_list" method="POST">
-  <div class="form-group">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
