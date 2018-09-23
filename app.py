@@ -8,7 +8,7 @@ app.secret_key = 'blah!'
 client = smartcar.AuthClient(
     client_id=secrets.CLIENT_ID,
     client_secret=secrets.CLIENT_SECRET,
-    redirect_uri='http://localhost:8000/callback',
+    redirect_uri='https://192.168.2.45:8000/callback',
     scope=['read_vehicle_info', 'read_location', 'read_odometer', 'control_security', 'read_vin']
 )
 
@@ -75,4 +75,4 @@ def lock():
     return jsonify(response)
 
 if __name__ == '__main__':
-    app.run(port=8000)
+    app.run(host='0.0.0.0', port=8000, ssl_context="adhoc")
