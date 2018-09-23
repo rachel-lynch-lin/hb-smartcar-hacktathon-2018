@@ -101,18 +101,21 @@ def job_list():
 
     job_1 = {
              "name": "Job 1",
+             "dealership_name": "Tesla Dealership - San Francisco"
              "car_address": "683 Sutter St, San Francisco, CA 94109",
              "dealership_address": "999 Van Ness Ave, San Francisco, CA 94109",
              "pick_up":"8:00AM"
             }
     job_2 = {
              "name": "Job 2",
+             "dealership_name": "Tesla Dealership - Scottsdale"
              "car_address": "15215 N. Kierland Blvd, Scottsdale, AZ 85254",
              "dealership_address": "7014 E. Camelback Road, Suite #1210, Scottsdale, AZ 85251",
              "pick_up":"10:30AM"
             }
     job_3 = {
              "name": "Job 3",
+             "dealership_name": "Tesla Dealership - Fremont"
              "car_address": "45500 Fremont Blvd Fremont, CA 94538",
              "dealership_address": "6701 Amador Plaza Road Dublin, CA 94568",
              "pick_up": "11:45AM"
@@ -137,6 +140,7 @@ def job_details():
 
     job_1 = {
              "name": "Job 1",
+             "dealership_name": "Tesla Dealership - San Francisco"
              "car_address": "683 Sutter St, San Francisco, CA 94109",
              "dealership_address": "999 Van Ness Ave, San Francisco, CA 94109",
              "pick_up":"8:00AM"
@@ -144,14 +148,6 @@ def job_details():
      
     return render_template('job_details.html',
                            job_1=job_1)
-
-@app.route('/dropoff')
-def dropoff():
-    """Dropoff Details Page"""
-
-     
-    return render_template('dropoff.html')
-
 
 
 if __name__ == '__main__':
